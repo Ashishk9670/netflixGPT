@@ -51,6 +51,16 @@ const Login = () => {
             .then(() => {
               // Profile updated!
               // ...
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
               navigate("/browse");
             })
             .catch((error) => {
