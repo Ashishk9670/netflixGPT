@@ -12,6 +12,22 @@
 - Create sign up user account in firebase
 - Implement sign in user API
 - Created our redux store with userSlice
+- Implemented signout
+- Update profile
+- Bugfix : Sign up user displayName and profile picture
+- Bugfix : If user is not /logged in redirect to login/browse page
+- Unsubscribed to onAuthStateChanged callback
+- Move hardcoded values to constants file
+- Register for TMDB API & create app
+- Get data from TMDB API for now playing movies
+- Custom hook for now Playing Movie
+- Create movieSlice
+- Update Store with movies Data
+- Planning for main and secondary container
+- Fetch data for trailer video
+- Update store with trailer video
+- Embedded Youtube video with autoplay and mute
+- Tailwind CSS to make container look awesome
 
 # Feature
 
