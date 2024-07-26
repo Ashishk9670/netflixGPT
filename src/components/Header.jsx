@@ -5,12 +5,17 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
-import { LOGO } from "../utils/constants";
+import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
+import { toggleGptSearchView } from "../utils/gptSlice";
+import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
+
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -23,6 +28,13 @@ const Header = () => {
       });
   };
 
+  const handleGptSearchClick = () => {
+    dispatch(toggleGptSearchView());
+  };
+
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -53,6 +65,26 @@ const Header = () => {
       <img className="w-44" src={LOGO} alt="neftflix-logo" />
       {user && (
         <div className="flex p-4">
+          {showGptSearch && (
+            <select
+              onChange={handleLanguageChange}
+              name=""
+              id=""
+              className="bg-gray-500 text-white mr-2 p-2 rounded-lg"
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
+          <button
+            className="py-2 px-4 mr-2 bg-purple-500 text-white rounded-lg opacity-55 hover:opacity-80"
+            onClick={handleGptSearchClick}
+          >
+            {showGptSearch ? "Home" : " GPT Search"}
+          </button>
           <img
             className="w-10 h-10 rounded-lg"
             src={user?.photoURL}

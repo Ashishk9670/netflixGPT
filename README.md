@@ -33,6 +33,9 @@
 - Found out tmdb image CDN
 - Browse page styling
 - Custom hook for now Playing movies
+- GPT search feature
+- Multilang feature in our app
+- Integrate GPT API
 
 # Feature
 
