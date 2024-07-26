@@ -28,6 +28,11 @@
 - Update store with trailer video
 - Embedded Youtube video with autoplay and mute
 - Tailwind CSS to make container look awesome
+- Build secondary component
+- Movie List and Movie card
+- Found out tmdb image CDN
+- Browse page styling
+- Custom hook for now Playing movies
 
 # Feature
 
